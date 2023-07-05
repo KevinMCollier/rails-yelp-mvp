@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center my-5"><%= @restaurant.name %></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="ms-3">
+        <p>Enjoy <%= @restaurant.category %> at <%= @restaurant.name %>!</p>
+        <p>Located at <%= @restaurant.address %>.</p>
+        <br>
+        <%= link_to "Return to all restaurants", restaurants_path %>
+        <br>
+        <br>
+        <p><strong>Reviews</strong></p>
+        <ul class="list-group">
+          <% @restaurant.reviews.each do |review| %>
+            <li class="list-group-item">
+              <% review.rating.times do %>
+                ⭐️
+              <% end %>
+              <br>
+              <%= review.content %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= render 'reviews/form' %>
+    </div>
+  </div>
+</div>

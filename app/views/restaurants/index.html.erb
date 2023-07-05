@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="text-right">
+    <%= link_to "Add a new restaurant", new_restaurant_path %>
+  </div>
+  <h1 class="text-center my-5">Feeling Hungry? 🍔</h1>
+  <div class="row justify-content-center">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-12">
+        <div class="card m-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text"><%= restaurant.category %></p>
+            <p class="card-text">Located at <%= restaurant.address %></p>
+            <%= link_to restaurant_path(restaurant), class: "btn btn-primary" do %>
+              See Reviews...
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>
